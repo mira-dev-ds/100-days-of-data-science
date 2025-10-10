@@ -14,7 +14,7 @@ Every day, I’ll:
 
 | Day | Project | Skills |
 |-----|----------|--------|
-| 01 | [Netflix Data Analysis](./Day01_Netflix_Data_Analysis) | Pandas, EDA |
+| 01 | [Netflix Data Analysis](Day01_Netflix_Data_Analysis) | Pandas, EDA |
 | 02 | — | — |
 | 03 | — | — |
 
