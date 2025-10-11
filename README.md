@@ -15,7 +15,7 @@ Every day, I’ll:
 | Day | Project | Skills |
 |-----|----------|--------|
 | 01 | [Netflix Data Analysis](Day01_Netflix_Data_Analysis) | Pandas, EDA |
-| 02 | — | — |
+| 02 | [Youtube Song Analysis](https://github.com/Data-withMirunalini/100-days-of-data-science/tree/main/Day02_Youtube_Top100_Hits) | EDA |
 | 03 | — | — |
 
 ---
