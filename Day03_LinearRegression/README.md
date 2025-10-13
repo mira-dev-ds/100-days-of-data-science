@@ -46,8 +46,8 @@ and visualize how the model fits the data.
 
 ---
 
-📂 GitHub Repository: [100 Days of Data Science](YOUR_REPO_LINK)  
-📁 Day 3 Folder: [Linear Regression Concepts](YOUR_DAY3_LINK)
+📂 GitHub Repository: [100 Days of Data Science](https://github.com/Data-withMirunalini/100-days-of-data-science/tree/main)  
+📁 Day 3 Folder: [Linear Regression Concepts](https://github.com/Data-withMirunalini/100-days-of-data-science/blob/main/Day03_LinearRegression/Day3_Linear_Regression.ipynb)
 
 ---
 
