@@ -16,7 +16,8 @@ Every day, I’ll:
 |-----|----------|--------|
 | 01 | [Netflix Data Analysis](Day01_Netflix_Data_Analysis) | Pandas, EDA |
 | 02 | [Youtube Song Analysis](https://github.com/Data-withMirunalini/100-days-of-data-science/tree/main/Day02_Youtube_Top100_Hits) | EDA |
-| 03 | — | — |
+| 03 | [Linear Regression](https://github.com/Data-withMirunalini/100-days-of-data-science/tree/main/Day03_LinearRegression)| sklearn |
+| 04 | [Ecommerce Project - Linear Regression](https://github.com/Data-withMirunalini/100-days-of-data-science/tree/main/Day04_Ecommerce_Linear_Regression)| sklearn , MSE ,seaborn|
 
 ---
 
