@@ -85,8 +85,8 @@ to understand how non-linear relationships can be modeled.
 
 ---
 
-📂 GitHub Repository: [100 Days of Data Science](YOUR_REPO_LINK)  
-📁 Day 4 Folder: [E-Commerce Linear Regression](YOUR_DAY4_LINK)
+📂 GitHub Repository: [100 Days of Data Science](https://github.com/Data-withMirunalini/100-days-of-data-science/tree/main)  
+📁 Day 4 Folder: [E-Commerce Linear Regression](https://github.com/Data-withMirunalini/100-days-of-data-science/tree/main/Day04_Ecommerce_Linear_Regression)
 
 ---
 
