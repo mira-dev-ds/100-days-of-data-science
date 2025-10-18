@@ -24,4 +24,4 @@ Every day, I’ll:
 ## 🎯 Goal
 To build 100 hands-on data projects and become confident in Python, SQL, Machine Learning, and real-world data storytelling.
 
-Follow my journey on [Medium](https://datawithmirunalini.medium.com/)✨
+
