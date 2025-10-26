@@ -90,4 +90,4 @@ to understand how non-linear relationships can be modeled.
 
 ---
 
-#100DaysOfDataScience #DataWithMirunalini #MachineLearning #LinearRegression #Kaggle #EDA #DataScienceJourney
+#100DaysOfDataScience #MachineLearning #LinearRegression #Kaggle #EDA #DataScienceJourney
