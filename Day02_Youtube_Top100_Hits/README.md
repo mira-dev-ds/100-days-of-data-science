@@ -20,5 +20,5 @@ You can download the dataset here:
 
 ---
 
-#100DaysOfDataScience #DataWithMirunalini #DataScience #Python
+#100DaysOfDataScience#DataScience #Python
 
