@@ -51,4 +51,4 @@ and visualize how the model fits the data.
 
 ---
 
-#100DaysOfDataScience #DataWithMirunalini #MachineLearning #LinearRegression #DataScienceJourney
+#100DaysOfDataScience #MachineLearning #LinearRegression #DataScienceJourney
