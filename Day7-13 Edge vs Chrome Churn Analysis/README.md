@@ -1,122 +1,62 @@
-# ==========================================
-# Synthetic Browser Churn Dataset Generator
-# Author: A.R.A Mirunalini
-# Project: Chrome vs Edge User Analysis
-# Date: 28-10-2025
-# ==========================================
+Browser Churn Data Generation
 
-import numpy as np
-import pandas as pd
-import random
+This project simulates real-world user behavior for Microsoft Edge users, focusing on identifying patterns that lead to browser churn — users switching from Edge to Chrome. The dataset is designed to support churn analysis, EDA, and machine learning experiments.
 
-# ---------- 1. Basic Config ----------
-np.random.seed(42)
-n = 5000
+🎯 Objective
 
-# ---------- 2. Helper Functions ----------
-def sigmoid(x):
-    return 1 / (1 + np.exp(-x))
+The goal of this project is to generate a realistic synthetic dataset that reflects how users interact with a web browser and what behavioral patterns influence their likelihood to switch.
 
-# ---------- 3. Define Base Features ----------
+🧩 Features Included
+Feature	Type	Description
+user_id	Integer	Unique user identifier
+age	Integer	User’s age (18–70)
+region	Categorical	User’s region (e.g., North America, Europe, Asia)
+device_type	Categorical	Device used — Desktop, Laptop, or Mobile
+daily_usage_time	Float	Average daily usage time in minutes
+avg_load_speed	Float	Average page load speed (in seconds)
+crash_count	Integer	Number of browser crashes per week
+extensions_installed	Integer	Number of browser extensions installed
+ad_block_usage	Binary	1 if ad blocker is used, else 0
+privacy_concern_level	Integer	User’s privacy concern (1–10)
+satisfaction_score	Float	User satisfaction level (1–10)
+frequency_of_updates	Integer	Number of updates per month
+technical_literacy	Integer	Technical skill level (1–10)
+ad_exposure_score	Float	Exposure to ads (1–10)
+churn	Binary	1 = switched to Chrome, 0 = stayed on Edge
+⚙️ Logic Behind the Data
 
-# Demographics
-os_type = np.random.choice(["Windows", "macOS", "Linux"], size=n, p=[0.7, 0.2, 0.1])
-region = np.random.choice(["North America", "Europe", "Asia", "Others"], size=n, p=[0.25, 0.25, 0.35, 0.15])
-age_group = np.random.choice(["<25", "25-40", "40-60", "60+"], size=n, p=[0.3, 0.4, 0.2, 0.1])
-default_search_engine = np.random.choice(["Bing", "Google", "DuckDuckGo"], size=n, p=[0.6, 0.3, 0.1])
+This dataset is not random. Logical relationships are embedded to mimic real-world behavior:
 
-# Engagement
-daily_usage_time = np.random.normal(120, 50, n).clip(10, 300)
-extensions_installed = np.random.poisson(3, n).clip(0, 15)
-cross_device_sync = np.random.choice([0, 1], size=n, p=[0.4, 0.6])
-homepage_customized = np.random.choice([0, 1], size=n, p=[0.5, 0.5])
+Higher crash_count, slower load_speed, and lower satisfaction increase churn probability.
 
-# Experience
-days_since_last_update = np.random.randint(0, 90, n)
-avg_load_speed = np.random.normal(2.5, 0.8, n).clip(0.5, 5)
-crash_count = np.random.poisson(2 + (days_since_last_update > 30).astype(int), n).clip(0, 10)
+Strong privacy concerns combined with stable performance reduce churn.
 
-# Psychographics
-privacy_concern_level = np.random.uniform(1, 10, n)
-ad_block_usage = np.random.choice([0, 1], size=n, p=[0.5, 0.5])
-feedback_submitted = np.random.choice([0, 1], size=n, p=[0.7, 0.3])
+Users with high ad exposure or frequent crashes are more likely to switch.
 
-# ---------- 4. Derived Satisfaction ----------
-# Base satisfaction inversely related to crashes and load speed
-satisfaction_score = (
-    10 
-    - 0.7 * crash_count 
-    - 0.8 * avg_load_speed 
-    + 0.01 * daily_usage_time
-)
-# Add noise and clip range
-satisfaction_score = satisfaction_score + np.random.normal(0, 1, n)
-satisfaction_score = np.clip(satisfaction_score, 1, 10)
+These relationships ensure realistic correlations and non-linear patterns — ideal for churn prediction modeling.
 
-# ---------- 5. Compute Churn Probability ----------
-# Weights (based on earlier discussion)
-b = -3.0
-w1, w2, w3, w4, w5, w6 = 0.8, 0.4, 0.6, 0.25, 0.6, 0.15
+🧠 Tech Stack
 
-churn_score = (
-    b
-    + w1 * (10 - satisfaction_score)
-    + w2 * crash_count
-    + w3 * avg_load_speed
-    + w4 * privacy_concern_level
-    - w5 * (daily_usage_time / 100)
-    - w6 * extensions_installed
-)
+Python 3.x
 
-p_churn = sigmoid(churn_score)
+pandas, numpy, random, matplotlib (for verification and visualization)
 
-# ---------- 6. Add Logical Adjustments ----------
-# Privacy-conscious with no adblock
-p_churn += 0.1 * ((privacy_concern_level > 7) & (ad_block_usage == 0))
-# Loyal Windows users
-p_churn -= 0.05 * (os_type == "Windows")
-# Google searchers slightly higher churn
-p_churn += 0.05 * (default_search_engine == "Google")
-# Strongly engaged users stay
-p_churn -= 0.1 * ((daily_usage_time > 200) & (extensions_installed > 5))
-# Cross-device sync lowers churn
-p_churn -= 0.05 * (cross_device_sync == 1)
+🚀 How to Run
 
-# Clip between [0,1]
-p_churn = np.clip(p_churn, 0, 1)
+Clone this repository or download the script file.
 
-# ---------- 7. Generate Final Churn Labels ----------
-churn = np.random.binomial(1, p_churn)
+Install dependencies:
 
-# ---------- 8. Assemble DataFrame ----------
-df = pd.DataFrame({
-    "user_id": np.arange(1, n+1),
-    "daily_usage_time": daily_usage_time,
-    "avg_load_speed": avg_load_speed,
-    "crash_count": crash_count,
-    "ad_block_usage": ad_block_usage,
-    "extensions_installed": extensions_installed,
-    "satisfaction_score": satisfaction_score,
-    "privacy_concern_level": privacy_concern_level,
-    "os_type": os_type,
-    "region": region,
-    "age_group": age_group,
-    "default_search_engine": default_search_engine,
-    "cross_device_sync": cross_device_sync,
-    "homepage_customized": homepage_customized,
-    "days_since_last_update": days_since_last_update,
-    "feedback_submitted": feedback_submitted,
-    "churn": churn
-})
-
-# ---------- 9. Sanity Checks ----------
-print(df.head())
-print("\nDataset shape:", df.shape)
-print("Churn rate: {:.2f}%".format(df['churn'].mean() * 100))
-
-# ---------- 10. Save Dataset ----------
-df.to_csv("browser_churn_data.csv", index=False)
-print("\n Dataset saved as browser_churn_data.csv")
+pip install pandas numpy matplotlib
 
 
-print("\nCorrelation with churn:\n", df.corr(numeric_only=True)["churn"].sort_values(ascending=False))
+Run the script:
+
+python generate_browser_churn_data.py
+
+The dataset will be saved as:
+
+browser_churn_data.csv
+The dataset will be saved as:
+
+browser_churn_data.csv
