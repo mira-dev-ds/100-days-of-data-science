@@ -1,12 +1,12 @@
-Browser Churn Data Generation
+### Browser Churn Data Generation
 
 This project simulates real-world user behavior for Microsoft Edge users, focusing on identifying patterns that lead to browser churn — users switching from Edge to Chrome. The dataset is designed to support churn analysis, EDA, and machine learning experiments.
 
-🎯 Objective
+## Objective
 
 The goal of this project is to generate a realistic synthetic dataset that reflects how users interact with a web browser and what behavioral patterns influence their likelihood to switch.
 
-🧩 Features Included
+## Features Included
 Feature	Type	Description
 user_id	Integer	Unique user identifier
 age	Integer	User’s age (18–70)
@@ -35,28 +35,9 @@ Users with high ad exposure or frequent crashes are more likely to switch.
 
 These relationships ensure realistic correlations and non-linear patterns — ideal for churn prediction modeling.
 
-🧠 Tech Stack
+## Tech Stack
 
 Python 3.x
 
 pandas, numpy, random, matplotlib (for verification and visualization)
 
-🚀 How to Run
-
-Clone this repository or download the script file.
-
-Install dependencies:
-
-pip install pandas numpy matplotlib
-
-
-Run the script:
-
-python generate_browser_churn_data.py
-
-The dataset will be saved as:
-
-browser_churn_data.csv
-The dataset will be saved as:
-
-browser_churn_data.csv
