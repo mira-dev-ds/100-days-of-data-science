@@ -1,5 +1,5 @@
 
-# 🕵️‍♀️ Python Job Scraper — TimesJobs
+# 🕵️‍♀️ Web Scrapping — TimesJobs and Amazon.com
 
 A simple web scraping project that automatically fetches the latest **Python developer job postings** from [TimesJobs.com](https://www.timesjobs.com/).
 It filters jobs based on **posting date** and **skills**, helping you instantly find roles that match *your comfort zone* — or avoid the ones that don’t!
@@ -113,3 +113,43 @@ Avoid making too many rapid requests.
 * Automating and filtering web data
 * Writing clean, reusable Python scripts
 
+# e-commerce data extraction — Amazon product pages.
+The goal was to understand how to extract structured product details (like title, price, and rating) from semi-structured web content.
+
+🔍 What Was Done
+
+Parsed the webpage using BeautifulSoup — using the lxml parser for faster and cleaner HTML processing.
+
+Used headers to mimic a real browser, ensuring the request wasn’t blocked by Amazon’s anti-bot filters.
+
+Extracted key product elements by inspecting the webpage’s HTML structure:
+
+Product Title using the id="productTitle" tag.
+
+Price using classes like a-price-whole or a-price.
+
+Rating using tags such as span with class a-icon-alt.
+
+Availability via div with id="availability" or similar identifiers.
+
+Implemented try–except blocks for each field to handle missing or inconsistent data gracefully.
+
+Used loops to iterate over multiple URLs and store results efficiently in a CSV file.
+
+⚙️ Tech Stack
+
+Python
+
+Requests for fetching HTML
+
+BeautifulSoup for parsing and data extraction
+
+CSV for storing the scraped results
+
+🧠 Key Learning
+
+How different sites structure their HTML and why element inspection is crucial.
+
+The importance of dynamic header setup to avoid request denial.
+
+Writing reusable scraping code that works for multiple URLs.
